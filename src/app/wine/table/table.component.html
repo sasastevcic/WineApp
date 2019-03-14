@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name <button class="btn btn-link" (click)="onChangeSort('name')"><span class="fa fa-sort"></span></button> </th>
+      <th>Year <button class="btn btn-link" (click)="onChangeSort('year')"><span class="fa fa-sort"></span></button> </th>
+      <th>Grapes <button class="btn btn-link" (click)="onChangeSort('grapes')"><span class="fa fa-sort"></span></button> </th>
+      <th>Country <button class="btn btn-link" (click)="onChangeSort('country')"><span class="fa fa-sort"></span></button> </th>
+      <th>Region <button class="btn btn-link" (click)="onChangeSort('region')"><span class="fa fa-sort"></span></button> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let wine of wines">
+      <td>{{wine.name}}</td>
+      <td>{{wine.year}}</td>
+      <td>{{wine.grapes}}</td>
+      <td>{{wine.country}}</td>
+      <td>{{wine.region}}</td>
+      <td><button class="btn btn-link" (click)="onDelete(wine._id)"><span class="fa fa-remove"></span></button></td>
+      <td><button class="btn btn-link" [routerLink]="['/wines/', wine._id]"><span class="fa fa-edit"></span></button></td>
+      <!-- <td><button class="btn btn-link" (click)="onEditWine(wine._id)">
+          <span class="fa fa-edit"></span></button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
